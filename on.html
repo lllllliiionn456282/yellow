@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online - Lion Yellow</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+.online-count {
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #222;
+}
+.online-list {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.online-member {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 12px 15px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+    <header class="app-header">
+    <span class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+    Anggota Online
+</header>
+
+    <div class="online-count" id="onlineCount">
+        Total Anggota Online: 0
+    </div>
+
+    <div class="online-list" id="onlineList">
+        <!-- Anggota online akan muncul di sini -->
+    </div>
+</div>
+
+<script>
+// Fungsi generate nama acak
+function randomName() {
+    const firstNames = ['Rian','Dika','Sari','Maya','Akbar','Fajar','Lina','Bayu','Rizky','Putri','Andi','Indra','Nina','Rudi','Aulia','Hendra','Wulan','Tari','Yoga','Dewi'];
+    const lastNames = ['Santoso','Pratama','Wijaya','Putra','Hidayat','Saputra','Ramadhan','Kusuma','Anggraini','Saputra','Kurnia','Wicaksono','Susanto','Prasetyo','Gunawan'];
+    const first = firstNames[Math.floor(Math.random() * firstNames.length)];
+    const last = lastNames[Math.floor(Math.random() * lastNames.length)];
+    return first + ' ' + last;
+}
+
+// Fungsi generate nominal investasi acak
+function randomInvest() {
+    const min = 50000;
+    const max = 2000000;
+    const amount = Math.floor(Math.random() * (max - min + 1)) + min;
+    return `Rp${amount.toLocaleString()}`;
+}
+
+// Jumlah anggota online
+const totalOnline = 537;
+document.getElementById('onlineCount').textContent = `Total Anggota Online: ${totalOnline}`;
+
+const onlineList = document.getElementById('onlineList');
+
+// Generate anggota
+for(let i=0; i<totalOnline; i++) {
+    const div = document.createElement('div');
+    div.className = 'online-member';
+    div.innerHTML = `<span>${randomName()}</span><span>${randomInvest()}</span>`;
+    onlineList.appendChild(div);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level & Pencapaian - Lion Yellow</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+/* Header */
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Level Section */
+.level-section {
+    padding: 20px 15px;
+}
+.level-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+/* Current Level Card */
+.current-level-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+.level-badge {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    background: #eee;
+    color: #999;
+}
+.level-badge:hover { transform: scale(1.1); }
+
+.level-info {
+    flex-grow: 1;
+}
+.current-level {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+    color: #222;
+}
+.progress-wrapper {
+    width: 100%;
+    height: 12px;
+    background: #eee;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+.progress-bar {
+    height: 100%;
+    width: 0; /* Semua 0% */
+    background: linear-gradient(90deg, #ffc107, #ffca2c);
+    transition: width 1s ease;
+}
+.progress-text {
+    font-size: 12px;
+    color: #555;
+}
+
+/* Achievements Grid */
+.achievement-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #222;
+}
+.achievement-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.achievement-box {
+    flex: 1 1 45%;
+    padding: 12px;
+    border-radius: 12px;
+    background: #eee;
+    color: #999;
+    text-align: center;
+    cursor: default;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    font-weight: 500;
+}
+.achievement-box.locked {
+    background: #eee;
+    color: #999;
+}
+
+/* Instructions */
+.instructions-section {
+    background-color: #fff;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+.instructions-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #222;
+    text-align: left;
+}
+.instructions-section p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+    <header class="app-header">
+        <span class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+        Level & Pencapaian
+    </header>
+
+    <main class="level-section">
+        <h2>Level Saat Ini</h2>
+        <div class="current-level-card">
+            <div class="level-badge">0</div>
+            <div class="level-info">
+                <span class="current-level">Level 0</span>
+                <div class="progress-wrapper">
+                    <div class="progress-bar"></div>
+                </div>
+                <span class="progress-text">0%</span>
+            </div>
+        </div>
+
+        <div class="achievement-section">
+            <h3>Pencapaian</h3>
+            <div class="achievement-grid">
+                <div class="achievement-box locked">🔒 Investasi Pertama</div>
+                <div class="achievement-box locked">🔒 Deposit 1.000.000</div>
+                <div class="achievement-box locked">🔒 3 Produk Aktif</div>
+                <div class="achievement-box locked">🔒 Bonus Harian Pertama</div>
+            </div>
+        </div>
+    </main>
+
+    <section class="instructions-section">
+        <h3>Petunjuk dan Informasi Tambahan</h3>
+        <p>
+        Semua pengguna Lion Yellow memulai dari Level 0. Mulailah membeli produk investasi untuk membuka level pertama dan pencapaian pertama Anda. Progres level dan pencapaian akan tercatat secara otomatis, dan Anda dapat memantau status di halaman ini kapan saja. Setiap pencapaian memberikan reward eksklusif dan bonus tambahan.
+        </p>
+    </section>
+</div>
+
+<script>
+// Semua progress tetap 0% untuk versi awal
+</script>
+
+</body>
+</html>

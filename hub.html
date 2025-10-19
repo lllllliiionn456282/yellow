@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hubungi Admin - Lion Yellow</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Contact Form */
+.contact-section {
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.contact-section h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.contact-section label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 5px;
+}
+.contact-section input,
+.contact-section textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 14px;
+    border-radius: 12px;
+    border: 1px solid #ffc107;
+    outline: none;
+    box-sizing: border-box;
+    resize: none;
+}
+.contact-section textarea {
+    min-height: 120px;
+}
+.send-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffc107;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.send-button:hover:not(:disabled) {
+    background-color: #ffca2c;
+}
+.send-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Instructions */
+.instructions-section {
+    background-color: #fff;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+.instructions-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #222;
+    text-align: left;
+}
+.instructions-section p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+    <header class="app-header">
+        <span class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+        Hubungi Admin
+    </header>
+
+    <main class="contact-section">
+        <h2>Form Kontak Admin</h2>
+
+        <label for="user-name">Nama</label>
+        <input type="text" id="user-name" placeholder="Masukkan nama Anda (opsional)">
+
+        <label for="user-email">Email / ID Akun</label>
+        <input type="text" id="user-email" placeholder="Masukkan email atau ID akun">
+
+        <label for="user-message">Pesan / Masalah Yang Terjadi</label>
+        <textarea id="user-message" placeholder="Tuliskan pesan Anda di sini..."></textarea>
+
+        <button class="send-button" id="sendButton">Kirim Pesan</button>
+    </main>
+
+    <section class="instructions-section">
+        <h3>Petunjuk Pengiriman Pesan</h3>
+        <p>
+        Pastikan informasi yang Anda masukkan benar agar admin dapat merespons dengan cepat. Pesan Anda akan dibaca oleh tim admin Lion Yellow dan dijawab secepatnya melalui chat atau email. Jangan membagikan informasi pribadi yang sensitif selain yang diperlukan.
+        </p>
+    </section>
+</div>
+
+<script>
+document.getElementById('sendButton').addEventListener('click', function() {
+    const name = document.getElementById('user-name').value.trim();
+    const email = document.getElementById('user-email').value.trim();
+    const message = document.getElementById('user-message').value.trim();
+
+    if(email === "" || message === "") {
+        alert("Mohon lengkapi Email/ID Akun dan Pesan Anda!");
+        return;
+    }
+
+    this.textContent = "Mengirim...";
+    this.disabled = true;
+
+    // Simulasi pengiriman
+    setTimeout(() => {
+        alert("Pesan Anda telah terkirim. Admin akan merespons secepatnya.");
+        document.getElementById('user-name').value = "";
+        document.getElementById('user-email').value = "";
+        document.getElementById('user-message').value = "";
+        this.textContent = "Kirim Pesan";
+        this.disabled = false;
+    }, 1500);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kode Bonus - Lion Yellow</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Redemption Section */
+.redemption-section {
+    padding: 25px 20px;
+    text-align: center;
+}
+.gift-icon-container {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background-color: #ffc107;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(255,202,44,0.5);
+}
+.gift-icon-container i {
+    font-size: 36px;
+    color: #000;
+}
+.redemption-section h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #222;
+}
+.redemption-section p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+.redemption-form input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 12px;
+    border: 1px solid #ffc107;
+    text-align: center;
+    margin-bottom: 12px;
+    outline: none;
+    box-sizing: border-box;
+}
+.claim-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffc107;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.claim-button:hover:not(:disabled) {
+    background-color: #ffca2c;
+}
+.claim-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Instructions */
+.instructions-section {
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+.instructions-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #222;
+    text-align: left;
+}
+.instruction-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.instruction-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+.instruction-list li .number {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #ffc107;
+    flex-shrink: 0;
+    width: 20px; /* Lebar agar rapi */
+    text-align: center;
+}
+.instruction-list li span {
+    text-align: left;
+}
+.history-section {
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+.history-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #222;
+    text-align: left;
+}
+.history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.history-list li {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.history-list li:last-child {
+    border-bottom: none;
+}
+
+</style>
+</head>
+<body>
+
+<div class="app-container">
+    <header class="app-header">
+        <span class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+        Kode Bonus
+    </header>
+
+    <main class="redemption-section">
+        <div class="gift-icon-container">
+            <i class="fas fa-gift"></i>
+        </div>
+
+        <h2>Masukkan Kode Hadiah</h2>
+        <p>Klaim bonus menarik dengan memasukkan kode hadiah di bawah ini.</p>
+
+        <form id="redemptionForm" class="redemption-form">
+            <input type="text" id="gift-code" placeholder="Masukkan Kode Hadiah" required>
+            <button type="submit" class="claim-button" id="claimButton">Klaim Sekarang</button>
+        </form>
+
+        <section class="instructions-section">
+            <h3>Cara Mendapatkan Kode Hadiah</h3>
+            <ul class="instruction-list">
+                <li><div class="number">1</div><span>Deposit dan menjadi anggota aktif resmi untuk mendapatkan kode spesial.</span></li>
+                <li><div class="number">2</div><span>Setiap kode hanya bisa digunakan satu kali.</span></li>
+                <li><div class="number">3</div><span>Pastikan penulisan kode benar tanpa spasi tambahan.</span></li>
+                <li><div class="number">4</div><span>Hubungi layanan pelanggan jika mengalami masalah saat penukaran.</span></li>
+            </ul>
+        </section>
+        <section class="history-section">
+    <h3>Riwayat Pengambilan Bonus</h3>
+    <ul class="history-list">
+        <!-- Belum ada riwayat, tampil kosong -->
+        <li style="color:#aaa; text-align:center;">Belum ada riwayat pengambilan bonus</li>
+    </ul>
+</section>
+    </main>
+</div>
+
+<script>
+document.getElementById('redemptionForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const giftCodeInput = document.getElementById('gift-code');
+    const claimButton = document.getElementById('claimButton');
+    const giftCode = giftCodeInput.value.trim();
+
+    if(giftCode === "") {
+        alert("Mohon masukkan Kode Hadiah Anda!");
+        giftCodeInput.focus();
+        return;
+    }
+
+    claimButton.textContent = "Memproses...";
+    claimButton.disabled = true;
+
+    setTimeout(() => {
+        if (giftCode.toLowerCase() === "vipbonus") {
+            alert(`Selamat! Kode "${giftCode}" berhasil ditukarkan. Bonus telah ditambahkan ke akun Anda.`);
+        } else {
+            alert(`Penukaran Gagal: Kode "${giftCode}" tidak valid atau sudah digunakan.`);
+        }
+        claimButton.textContent = "Klaim Sekarang";
+        claimButton.disabled = false;
+        giftCodeInput.value = "";
+    }, 1500);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keamanan Akun - Lion Yellow</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+/* Header */
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Section Styling */
+.section {
+    background: #fff;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+.section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #222;
+}
+
+/* Form Inputs */
+.section input[type="password"], .section input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ffc107;
+    margin-bottom: 12px;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Buttons */
+.button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ffc107;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.button:hover {
+    background-color: #ffca2c;
+}
+
+/* Toggle 2FA */
+.toggle-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background-color: #ccc;
+    border-radius: 24px;
+    transition: .4s;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px; width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: #ffc107;
+}
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Login History */
+.login-history {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+.login-history li {
+    margin-bottom: 8px;
+}
+
+.instructions-section {
+    background-color: #fff;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.instructions-section h3 {
+    font-size: 16px;  /* Konsisten dengan menu lain */
+    margin-bottom: 12px;
+    color: #222;
+    text-align: left;
+}
+
+.instructions-section p {
+    font-size: 14px;  /* Konsisten */
+    color: #555;
+    line-height: 1.5;
+    text-align: left;
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+    <header class="app-header">
+        <span class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+        Keamanan Akun
+    </header>
+
+    <!-- Ubah Kata Sandi -->
+    <section class="section">
+        <h3>Ubah Kata Sandi</h3>
+        <input type="password" placeholder="Kata Sandi Lama">
+        <input type="password" placeholder="Kata Sandi Baru">
+        <input type="password" placeholder="Konfirmasi Kata Sandi Baru">
+        <button class="button">Simpan Perubahan</button>
+    </section>
+
+    <!-- Verifikasi 2FA -->
+    <section class="section">
+        <h3>Verifikasi Dua Langkah (2FA)</h3>
+        <div class="toggle-container">
+            <span>Aktifkan 2FA</span>
+            <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </section>
+
+    <!-- Riwayat Login -->
+    <section class="section">
+        <h3>Riwayat Login</h3>
+        <ul class="login-history">
+            <li>Belum ada riwayat login</li>
+        </ul>
+    </section>
+
+    <section class="instructions-section">
+    <h3>Peringatan & Tips Keamanan</h3>
+    <p>
+        Pastikan kata sandi Anda kuat dan unik, jangan gunakan kata sandi yang sama dengan akun lain. 
+        Aktifkan Verifikasi Dua Langkah (2FA) untuk perlindungan tambahan. Selalu logout setelah selesai menggunakan aplikasi di perangkat publik. 
+        Jangan membagikan kode OTP atau informasi akun Anda kepada siapapun, termasuk pihak yang mengaku dari Lion Yellow. 
+        Periksa riwayat login secara rutin untuk memastikan tidak ada aktivitas mencurigakan. 
+        Jika menemukan hal yang tidak biasa, segera ubah kata sandi dan hubungi layanan pelanggan. 
+        Lion Yellow berkomitmen menjaga keamanan akun Anda dan memberikan pengalaman investasi yang aman, nyaman, dan terpercaya.
+    </p>
+</section>
+</div>
+
+</body>
+</html>

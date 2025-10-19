@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investasi - Lion Yellow</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Tabs */
+.invest-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px;
+    border-bottom: 1px solid #eee;
+}
+.invest-tabs button {
+    flex: 1;
+    padding: 12px 0;
+    border: none;
+    background: none;
+    font-weight: bold; /* Bold supaya lebih menonjol */
+    cursor: pointer;
+    font-size: 16px; /* font lebih besar */
+    color: #555;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+.invest-tabs button.active {
+    color: #000;
+    border-bottom: 3px solid #ffc107;
+}
+
+/* Investment Grid */
+.invest-grid {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+.invest-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    text-align: center;
+}
+.invest-box i {
+    font-size: 40px;
+    color: #ffc107;
+    margin-bottom: 12px;
+}
+.invest-box h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #222;
+}
+.invest-box p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Additional Instructions */
+.instructions-section {
+    background-color: #fff;
+    padding: 15px;
+    margin: 0 15px 20px 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+.instructions-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #222;
+    text-align: left;
+}
+.instructions-section .instruction-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.instructions-section .instruction-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+.instructions-section .instruction-list li .number {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #ffc107;
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+}
+.instructions-section .instruction-list li span {
+    text-align: left;
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+    <header class="app-header">
+        <span class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+        Investasi Saya
+    </header>
+
+    <!-- Tabs -->
+    <div class="invest-tabs">
+        <button class="active" id="tab-running">Sedang Berjalan</button>
+        <button id="tab-finished">Selesai</button>
+    </div>
+
+    <!-- Grid / Box -->
+    <div class="invest-grid" id="running-grid">
+        <!-- Belum ada produk aktif -->
+        <div class="invest-box">
+            <i class="fas fa-box-open"></i>
+            <h3>Belum Ada Produk Investasi Aktif</h3>
+            <p>Segera beli produk sekarang untuk memulai investasi Anda!</p>
+        </div>
+    </div>
+
+    <div class="invest-grid" id="finished-grid" style="display:none;">
+        <!-- Belum ada produk selesai -->
+        <div class="invest-box">
+            <i class="fas fa-box-open"></i>
+            <h3>Belum Ada Produk Investasi Selesai</h3>
+            <p>Produk yang telah Anda beli belum selesai. Silakan pantau di sini setelah selesai.</p>
+        </div>
+    </div>
+
+    <!-- Additional Instructions -->
+    <section class="instructions-section">
+        <h3>Informasi Penghasilan Produk Aktif</h3>
+        <ul class="instruction-list">
+            <li><div class="number">1</div><span>Jika Anda memiliki produk investasi aktif, Anda akan mulai mendapatkan penghasilan harian dari produk tersebut.</span></li>
+            <li><div class="number">2</div><span>Penghasilan harian akan masuk otomatis ke akun Anda setiap pukul 00:01 WIB atau saat pergantian hari.</span></li>
+            <li><div class="number">3</div><span>Perhitungan penghasilan didasarkan pada nominal investasi, durasi produk, dan persentase keuntungan harian yang berlaku.</span></li>
+            <li><div class="number">4</div><span>Pastikan produk Anda tetap aktif agar penghasilan terus berjalan; jika produk berakhir, penghasilan otomatis berhenti.</span></li>
+            <li><div class="number">5</div><span>Anda dapat memantau riwayat penghasilan harian melalui menu Riwayat atau Dashboard Akun di aplikasi.</span></li>
+        </ul>
+    </section>
+</div>
+
+<script>
+// Tabs switch
+const tabRunning = document.getElementById('tab-running');
+const tabFinished = document.getElementById('tab-finished');
+const runningGrid = document.getElementById('running-grid');
+const finishedGrid = document.getElementById('finished-grid');
+
+tabRunning.addEventListener('click', () => {
+    tabRunning.classList.add('active');
+    tabFinished.classList.remove('active');
+    runningGrid.style.display = 'flex';
+    finishedGrid.style.display = 'none';
+});
+
+tabFinished.addEventListener('click', () => {
+    tabFinished.classList.add('active');
+    tabRunning.classList.remove('active');
+    finishedGrid.style.display = 'flex';
+    runningGrid.style.display = 'none';
+});
+</script>
+
+</body>
+</html>

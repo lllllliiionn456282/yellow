@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nilai Kami - Lion Yellow</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    background-color: #fff;
+    min-height: 100vh;
+}
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+.values-section {
+    padding: 15px;
+}
+.value-card {
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    padding: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+.value-card i {
+    font-size: 28px;
+    color: #ffc107;
+    min-width: 32px;
+}
+.value-card-content {
+    flex-grow: 1;
+}
+.value-card-content h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    color: #222;
+}
+.value-card-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+</style>
+</head>
+<body>
+<div class="app-container">
+    <header class="app-header">
+        <span class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+        Nilai Kami
+    </header>
+
+    <section class="values-section">
+
+        <div class="value-card">
+            <i class="fas fa-handshake"></i>
+            <div class="value-card-content">
+                <h3>Integritas</h3>
+                <p>Kami selalu berkomitmen untuk bertindak jujur dan transparan dalam setiap transaksi dan interaksi dengan pengguna maupun mitra. Integritas menjadi fondasi utama yang menjamin kepercayaan pengguna terhadap Lion Yellow.</p>
+            </div>
+        </div>
+
+        <div class="value-card">
+            <i class="fas fa-user-shield"></i>
+            <div class="value-card-content">
+                <h3>Keamanan</h3>
+                <p>Setiap data dan transaksi pengguna dilindungi dengan teknologi enkripsi terkini dan protokol keamanan terbaik, sehingga memberikan rasa aman dan nyaman saat menggunakan aplikasi untuk investasi maupun transaksi keuangan lainnya.</p>
+            </div>
+        </div>
+
+        <div class="value-card">
+            <i class="fas fa-lightbulb"></i>
+            <div class="value-card-content">
+                <h3>Inovasi</h3>
+                <p>Kami terus berinovasi dengan menghadirkan fitur-fitur terbaru yang memudahkan pengguna, meningkatkan efisiensi, dan menciptakan pengalaman investasi digital yang modern dan interaktif.</p>
+            </div>
+        </div>
+
+        <div class="value-card">
+            <i class="fas fa-users"></i>
+            <div class="value-card-content">
+                <h3>Kolaborasi</h3>
+                <p>Lion Yellow mendorong kerja sama tim dan kolaborasi antara pengguna, investor, dan mitra untuk mencapai tujuan bersama dan pertumbuhan investasi yang berkelanjutan.</p>
+            </div>
+        </div>
+
+        <div class="value-card">
+            <i class="fas fa-balance-scale"></i>
+            <div class="value-card-content">
+                <h3>Transparansi</h3>
+                <p>Kami menyediakan informasi yang jelas dan lengkap mengenai semua produk, biaya, dan keuntungan, sehingga pengguna dapat membuat keputusan investasi yang tepat tanpa adanya kebingungan.</p>
+            </div>
+        </div>
+
+    </section>
+</div>
+</body>
+</html>

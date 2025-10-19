@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berita Finansial</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0ffef;
+      display: flex;
+      justify-content: center;
+    }
+    .app-container {
+      width: 100%;
+      max-width: 450px;
+      background-color: #fff;
+      min-height: 100vh;
+    }
+    .app-header {
+      background-color: #ffc107;
+      color: #000;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .app-header .back-btn {
+      position: absolute;
+      left: 15px;
+      font-size: 22px;
+      cursor: pointer;
+      color: #000;
+    }
+    .news-section {
+      padding: 15px;
+    }
+    .news-card {
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    .news-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .news-content {
+      padding: 12px 15px 18px;
+    }
+    .news-content h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: #222;
+    }
+    .news-content p {
+      margin: 0 0 10px;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.4;
+    }
+    .read-more {
+      background: #ffc107;
+      border: none;
+      color: #000;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .read-more:hover {
+      background: #ffca2c;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <span class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+      <span>Berita Finansial</span>
+    </header>
+
+    <section class="news-section">
+
+      <div class="news-card">
+        <img src="https://img.pikbest.com/wp/202408/financial-stock-market-illustration-of-towards-growth-with-coins-and-broker_9847080.jpg!w700wp" alt="Pertumbuhan Investasi">
+        <div class="news-content">
+          <h3>Pasar Saham Menguat di Awal Pekan</h3>
+          <p>IHSG naik 1,2% berkat optimisme investor terhadap stabilitas ekonomi global dan inflasi yang terkendali.</p>
+          <a href="https://www.reuters.com/world/asia-pacific/indonesia-announces-cash-handout-internship-programme-stimulate-economy-2025-10-17/" target="_blank" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img src="https://previews.123rf.com/images/amornp/amornp2004/amornp200400050/144606228-finance-and-investment-concept-growing-money-and-plant-on-coins.jpg" alt="Investasi Hijau">
+        <div class="news-content">
+          <h3>Investasi Hijau Jadi Tren di 2025</h3>
+          <p>Banyak investor mulai beralih ke proyek ramah lingkungan dengan potensi keuntungan jangka panjang.</p>
+          <a href="https://www.ft.com/content/debf5656-81b3-4d87-837f-7153ec2d962f" target="_blank" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img src="https://freerangestock.com/sample/137518/mobile-payments--online-banking.jpg" alt="Digital Banking">
+        <div class="news-content">
+          <h3>Perbankan Digital Meningkat Pesat</h3>
+          <p>Layanan digital banking tumbuh hingga 45% dengan fitur keamanan dan efisiensi transaksi yang makin baik.</p>
+          <a href="https://www.reuters.com/world/asia-pacific/indonesia-considers-further-liquidity-injection-state-banks-2025-10-13/" target="_blank" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img src="https://previews.123rf.com/images/byebyeblue/byebyeblue1507/byebyeblue150700039/42934252-candle-stick-graph-chart-of-stock-market-investment-trading.jpg" alt="Saham Teknologi">
+        <div class="news-content">
+          <h3>Saham Teknologi Naik Berkat Inovasi AI</h3>
+          <p>Perusahaan berbasis AI menunjukkan kinerja keuangan kuat, menarik minat investor global.</p>
+          <a href="https://www.reuters.com/world/asia-pacific/indonesia-finance-minister-expects-more-capital-inflows-rupiah-appreciation-q4-2025-10-14/" target="_blank" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img src="https://st2.depositphotos.com/6235482/9903/i/950/depositphotos_99031582-stock-photo-financial-newspapers-headlines.jpg" alt="Berita Ekonomi">
+        <div class="news-content">
+          <h3>Rupiah Menguat Terhadap Dolar AS</h3>
+          <p>Nilai tukar rupiah menunjukkan penguatan stabil di tengah kondisi global yang fluktuatif.</p>
+          <a href="https://www.ft.com/content/b6f4ce79-ccc3-4b00-821f-234a5fcb63e1d" target="_blank" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img src="https://freerangestock.com/sample/137499/online-banking--money--secure-financial-transactions.jpg" alt="Transaksi Aman">
+        <div class="news-content">
+          <h3>Tips Aman Melakukan Transaksi Online</h3>
+          <p>Pahami langkah-langkah keamanan agar rekening kamu tetap terlindungi dari ancaman siber.</p>
+          <a href="https://www.reuters.com/markets/asia/indonesia-takes-currency-stock-market-measures-after-rupiah-index-fall-2025-03-19/" target="_blank" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img src="https://st4.depositphotos.com/7417846/22476/i/1600/depositphotos_224762952-stock-photo-businessman-reads-financial-news-world.jpg" alt="Global Market">
+        <div class="news-content">
+          <h3>Pasar Global Mulai Stabil</h3>
+          <p>Setelah gejolak suku bunga, investor kini menilai pasar global mulai menunjukkan arah positif.</p>
+          <a href="https://www.reuters.com/markets/asia/indonesia-seeks-to-calm-investors-after-stocks-rupiah-slide-2025-03-27/" target="_blank" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img src="https://previews.123rf.com/images/whyframeshot/whyframeshot1806/whyframeshot180600301/104853985-financial-stock-market-graph-chart.jpg" alt="Grafik Saham">
+        <div class="news-content">
+          <h3>Strategi Trading Aman Bagi Pemula</h3>
+          <p>Simak panduan dasar dalam berinvestasi di pasar saham untuk hasil yang lebih konsisten.</p>
+          <a href="https://www.reuters.com/world/asia-pacific/indonesian-government-says-economic-fundamentals-are-solid-despite-extended-2025-09-01/" target="_blank" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Digitalisasi Bank">
+        <div class="news-content">
+          <h3>Digitalisasi Bank Meningkatkan Akses Finansial</h3>
+          <p>Perbankan digital terus berkembang untuk menjangkau masyarakat yang belum tersentuh layanan keuangan formal.</p>
+          <a href="https://www.reuters.com/world/asia-pacific/indonesia-considers-further-liquidity-injection-state-banks-2025-10-13/" target="_blank" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+      <!-- Berita 9 (gambar fix) -->
+<div class="news-card">
+  <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=60" alt="Digitalisasi Bank">
+  <div class="news-content">
+    <h3>Digitalisasi Bank Meningkatkan Akses Finansial</h3>
+    <p>Perbankan digital terus berkembang untuk menjangkau masyarakat yang belum tersentuh layanan keuangan formal.</p>
+    <a href="https://www.reuters.com/world/asia-pacific/indonesia-considers-further-liquidity-injection-state-banks-2025-10-13/" 
+       target="_blank" class="read-more">Baca Selengkapnya</a>
+  </div>
+</div>
+
+      <div class="news-card">
+        <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ekonomi Dunia">
+        <div class="news-content">
+          <h3>Ekonomi Dunia Diproyeksi Tumbuh 3%</h3>
+          <p>Lembaga internasional memprediksi pertumbuhan global yang stabil meski masih ada tantangan geopolitik.</p>
+          <a href="https://www.ft.com/content/debf5656-81b3-4d87-837f-7153ec2d962f" target="_blank" class="read-more">Baca Selengkapnya</a>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</body>
+</html>

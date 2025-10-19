@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Saya</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+/* --- Umum --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0ffef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    background-color: #ffffff;
+    flex-grow: 1;
+    padding-bottom: 70px;
+}
+body.menu-open {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* --- Header --- */
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+}
+.app-header .left-icon {
+    font-size: 22px;
+    cursor: pointer;
+}
+.app-header .title {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+.app-header .hamburger {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* --- Overlay Background --- */
+.overlay-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(2px);
+    z-index: 900;
+    display: none;
+}
+
+/* --- Overlay Menu --- */
+.overlay-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 55%;
+    max-width: 220px;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 12px 40px 12px;
+    z-index: 1000;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition: right 0.3s ease;
+}
+.overlay-menu.show { right: 0; }
+.overlay-menu::-webkit-scrollbar { display: none; }
+
+.overlay-menu .logo {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0 20px 0;
+}
+.overlay-menu .logo img {
+    width: 95px;
+    height: auto;
+    border-radius: 14px;
+}
+
+/* Item menu */
+.overlay-menu a {
+    width: 100%;
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    transition: 0.25s;
+}
+.overlay-menu a i {
+    width: 22px;
+    font-size: 16px;
+    color: #ffc107;
+    margin-right: 8px;
+}
+.overlay-menu a:hover {
+    background: #fff7db;
+    border-radius: 8px;
+    padding-left: 8px;
+}
+.overlay-menu a:last-child {
+    margin-bottom: 50px;
+}
+
+/* --- Profil Card --- */
+.profile-box {
+    background: #fff;
+    margin: 20px 15px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(28,12,12,0.15);
+    text-align: center;
+}
+.profile-box img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.profile-box h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 5px 0;
+}
+.profile-box p {
+    color: #666;
+    margin-bottom: 20px;
+}
+.profile-info {
+    text-align: left;
+    margin-top: 15px;
+}
+.profile-info div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+.profile-info span:first-child { color: #666; }
+
+/* --- Tombol Keluar --- */
+.logout-btn {
+    background-color: #ffc107;
+    border: none;
+    color: #000;
+    width: 100%;
+    padding: 12px 0;
+    font-weight: 600;
+    border-radius: 25px;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.logout-btn:hover { background-color: #ffdb4d; }
+
+.uang-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 15px;
+}
+.uang-box {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  transition: all 0.25s ease;
+}
+.uang-box:hover {
+  background-color: #fff7db;
+  transform: translateY(-2px);
+}
+.uang-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  font-size: 18px;
+  border: 1px solid #ffc107;
+}
+.uang-box.masuk .uang-icon { background-color: #fff3c9; color: #ffc107; }
+.uang-box.keluar .uang-icon { background-color: #ffe0e0; color: #ff5252; border-color: #ff5252; }
+.uang-info { display: flex; flex-direction: column; }
+.uang-label { font-size: 13px; color: #555; }
+.uang-nominal { font-size: 14px; font-weight: bold; color: #000; }
+
+.invite-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  margin: 10px 15px 25px 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+.invite-icon {
+  width: 55px;
+  height: 55px;
+  background-color: #fff3c9;
+  color: #ffc107;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.invite-text h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
+}
+.invite-text p {
+  margin: 5px 0 10px;
+  font-size: 13px;
+  color: #555;
+}
+.invite-link-box {
+  display: flex;
+  align-items: center;
+  background: #f8f8f8;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+.invite-link-box input {
+  flex: 1;
+  border: none;
+  padding: 8px 10px;
+  background: transparent;
+  font-size: 13px;
+  color: #333;
+}
+.invite-link-box button {
+  background-color: #ffc107;
+  border: none;
+  padding: 8px 10px;
+  color: #000;
+  cursor: pointer;
+  font-size: 14px;
+}
+.invite-card.belum-aktif .invite-icon { background-color: #ffe0e0; color: #ff4d4d; }
+.aktif-btn { background-color: #ffc107; border: none; padding: 8px 15px; border-radius: 20px; font-size: 13px; cursor: pointer; font-weight: bold; color: #000; }
+.aktif-btn:hover { background-color: #ffca28; }
+
+.app-footer { text-align: center; font-size: 12px; color: #777; padding: 20px 10px 30px; background: transparent; }
+.app-footer .footer-line {
+  width: 40%;
+  height: 3px;
+  background: linear-gradient(to right, #ffc107, #ffeb3b);
+  border-radius: 10px;
+  margin: 0 auto 10px auto;
+}
+.app-footer strong { color: #000; }
+
+</style>
+</head>
+<body>
+
+<div class="app-container">
+    <header class="app-header">
+        <span class="left-icon"><i class="fas fa-user"></i></span>
+        <span class="title">Profil Saya</span>
+        <span class="hamburger" id="hamburgerMenu"><i class="fas fa-bars"></i></span>
+    </header>
+
+    <div class="profile-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/219/219970.png" alt="Foto Profil">
+        <h2 id="profileUsername">Lion Yellow</h2>
+        <p>ID Akun: <span id="profileId">83920192</span></p>
+
+        <div class="profile-info">
+            <div><span>Email</span><span id="profileEmail">akbar@example.com</span></div>
+            <div><span>No. Telepon</span><span id="profileHP">+62 812-3456-7890</span></div>
+            <div><span>Saldo</span><span id="profileSaldo">Rp5.000</span></div>
+            <div><span>Status Akun</span><span id="profileStatus">Belum Aktif</span></div>
+        </div>
+
+        <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> Keluar</button>
+    </div>
+
+    <div class="uang-grid">
+      <div class="uang-box masuk">
+        <div class="uang-icon"><i class="fas fa-arrow-down"></i></div>
+        <div class="uang-info">
+          <span class="uang-label">Uang Masuk</span>
+          <span class="uang-nominal" id="uangMasuk">Rp5.000</span>
+        </div>
+      </div>
+
+      <div class="uang-box keluar">
+        <div class="uang-icon"><i class="fas fa-arrow-up"></i></div>
+        <div class="uang-info">
+          <span class="uang-label">Uang Keluar</span>
+          <span class="uang-nominal" id="uangKeluar">Rp0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="invite-container" data-status="inactive">
+      <div class="invite-card aktif">
+        <div class="invite-icon"><i class="fas fa-user-friends"></i></div>
+        <div class="invite-text">
+          <h3>Ajak Teman & Dapatkan Bonus</h3>
+          <p>Bagikan tautan undanganmu dan raih hadiah setiap kali teman bergabung!</p>
+          <div class="invite-link-box">
+            <input type="text" id="inviteLink" value="https://contohwebmu.id/invite/ABCD1234" readonly>
+            <button id="copyBtn"><i class="fas fa-copy"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="invite-card belum-aktif">
+        <div class="invite-icon"><i class="fas fa-lock"></i></div>
+        <div class="invite-text">
+          <h3>Akun Belum Aktif</h3>
+          <p>Aktifkan akunmu terlebih dahulu untuk mendapatkan tautan undangan dan bonus teman.</p>
+          <button class="aktif-btn">Aktifkan Sekarang</button>
+        </div>
+      </div>
+    </div>
+
+<footer class="app-footer">
+  <p>© 2025 Lion Yellow. Semua hak dilindungi.</p>
+</footer>
+</div>
+
+<div class="overlay-bg" id="overlayBg"></div>
+<div class="overlay-menu" id="overlayMenu">
+    <div class="logo"><img src="logoku.png" alt="Logo Web"></div>
+    <a href="beranda.html"><i class="fas fa-home"></i> Beranda</a>
+    <a href="profil.html"><i class="fas fa-user"></i> Profil Saya</a>
+    <a href="investasi.html"><i class="fas fa-chart-line"></i> Investasi Saya</a>
+    <a href="riwayat.html"><i class="fas fa-clock"></i> Riwayat Transaksi</a>
+    <a href="ut.html"><i class="fas fa-share-alt"></i> Undang Teman</a>
+    <a href="promo.html"><i class="fas fa-bullhorn"></i> Promo & Event</a>
+    <a href="kode.html"><i class="fas fa-gift"></i> Klaim Bonus</a>
+    <a href="lp.html"><i class="fas fa-trophy"></i> Level & Pencapaian</a>
+    <a href="berita.html"><i class="fas fa-newspaper"></i> Berita Finansial</a>
+    <a href="pb.html"><i class="fas fa-question-circle"></i> Pusat Bantuan</a>
+    <a href="hub.html"><i class="fas fa-phone-alt"></i> Hubungi Admin</a>
+    <a href="kakun.html"><i class="fas fa-shield-alt"></i> Keamanan Akun</a>
+    <a href="info.html"><i class="fas fa-info-circle"></i> Tentang Aplikasi</a>
+    <a href="nilai.html"><i class="fas fa-star"></i> Nilai Kami</a>
+    <a href="login.html"><i class="fas fa-sign-out-alt" style="color:#e74c3c;"></i> Keluar</a>
+</div>
+
+<script>
+// --- Overlay Menu ---
+const hamburger = document.getElementById('hamburgerMenu');
+const overlayMenu = document.getElementById('overlayMenu');
+const overlayBg = document.getElementById('overlayBg');
+const body = document.body;
+
+hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    overlayMenu.classList.add('show');
+    overlayBg.style.display = 'block';
+    body.classList.add('menu-open');
+});
+
+overlayBg.addEventListener('click', () => {
+    overlayMenu.classList.remove('show');
+    overlayBg.style.display = 'none';
+    body.classList.remove('menu-open');
+});
+
+// --- Ambil akun yang sedang login ---
+const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+// Jika ada akun login, tampilkan data di profil
+if(currentUser){
+    document.getElementById('profileUsername').textContent = currentUser.username;
+    document.getElementById('profileEmail').textContent = currentUser.email;
+    document.getElementById('profileHP').textContent = currentUser.noHP;
+    document.getElementById('profileSaldo').textContent = "Rp" + currentUser.saldo.toLocaleString('id-ID');
+    document.getElementById('profileStatus').textContent = currentUser.status;
+    document.getElementById('profileId').textContent = currentUser.idAkun || Math.floor(Math.random()*10000000);
+    document.getElementById('uangMasuk').textContent = "Rp" + currentUser.saldo.toLocaleString('id-ID');
+}
+
+// --- Invite card status ---
+const inviteContainer = document.querySelector(".invite-container");
+const cardAktif = inviteContainer.querySelector(".invite-card.aktif");
+const cardBelumAktif = inviteContainer.querySelector(".invite-card.belum-aktif");
+
+if(currentUser && currentUser.status.toLowerCase() === "aktif"){
+    cardAktif.style.display = "flex";
+    cardBelumAktif.style.display = "none";
+}else{
+    cardAktif.style.display = "none";
+    cardBelumAktif.style.display = "flex";
+}
+
+// --- Tombol salin tautan ---
+const copyBtn = document.getElementById("copyBtn");
+if(copyBtn){
+    copyBtn.addEventListener("click", function(){
+        const input = document.getElementById("inviteLink");
+        input.select();
+        input.setSelectionRange(0,99999);
+        document.execCommand("copy");
+        alert("Tautan undangan disalin!");
+    });
+}
+
+// --- Tombol logout ---
+const logoutBtn = document.querySelector(".logout-btn");
+if(logoutBtn){
+    logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem('currentUser'); // hanya hapus akun yang sedang login
+        localStorage.removeItem('isLoggedIn');
+        window.location.href = "pendaftaran.html";
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undang Teman - Lion Yellow</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Info Box */
+.info-box {
+    background-color: #fff3cd;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    color: #856404;
+    font-size: 14px;
+}
+.info-box i {
+    color: #dc3545;
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+/* Bonus Section */
+.bonus-section {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+.bonus-section h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #222;
+}
+.bonus-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.bonus-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+.bonus-list li:last-child {
+    border-bottom: none;
+}
+.bonus-list li .label {
+    font-weight: 500;
+    color: #222;
+}
+.bonus-list li .value {
+    font-weight: bold;
+    color: #ffc107;
+}
+.explanation {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+    <header class="app-header">
+        <span class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+        Undang Teman
+    </header>
+
+    <!-- Info Akun Belum Aktif -->
+    <div class="info-box">
+        <i class="fas fa-lock"></i>
+        Akun Anda belum aktif, sehingga saat ini belum bisa mengundang teman. Segera aktifkan akun untuk mulai mengundang dan mendapatkan bonus.
+    </div>
+
+    <!-- Bonus Komisi -->
+    <div class="bonus-section">
+        <h3>Bonus Komisi</h3>
+        <ul class="bonus-list">
+            <li><span class="label">Level 1</span><span class="value">15%</span></li>
+            <li><span class="label">Level 2</span><span class="value">2%</span></li>
+            <li><span class="label">Level 3</span><span class="value">1%</span></li>
+        </ul>
+        <div class="explanation">
+            Ketika tim yang Anda undang membeli produk dengan harga tertentu, Anda akan mendapatkan persentase (%) dari harga pembelian mereka sesuai level.
+        </div>
+    </div>
+
+    <!-- Bonus Rabat -->
+    <div class="bonus-section">
+        <h3>Bonus Rabat</h3>
+        <ul class="bonus-list">
+            <li><span class="label">Level 1</span><span class="value">4%</span></li>
+            <li><span class="label">Level 2</span><span class="value">2%</span></li>
+            <li><span class="label">Level 3</span><span class="value">1%</span></li>
+        </ul>
+        <div class="explanation">
+            Anda akan mendapatkan bonus dari penghasilan harian tim Anda berdasarkan persentase setiap level.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penarikan - Lion Yellow</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Saldo tersedia */
+.balance-box {
+    background-color: #fff3cd;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    font-size: 16px;
+    color: #856404;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Withdrawal Section */
+.withdraw-section {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.withdraw-section select,
+.withdraw-section input[type="text"],
+.withdraw-section input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 14px;
+    border-radius: 12px;
+    border: 1px solid #ffc107;
+    outline: none;
+    box-sizing: border-box;
+}
+.quick-nominal {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.quick-nominal button {
+    flex: 1;
+    padding: 12px 0;
+    border: 1px solid #ffc107;
+    border-radius: 12px;
+    background-color: #fff;
+    font-weight: bold;
+    color: #222;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.quick-nominal button:hover {
+    background-color: #ffecb3;
+}
+.withdraw-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffc107;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.withdraw-button:hover:not(:disabled) {
+    background-color: #ffca2c;
+}
+.withdraw-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Instructions */
+.instructions-section {
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+.instructions-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #222;
+}
+.instruction-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.instruction-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+.instruction-list li .number {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #ffc107;
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+}
+.instruction-list li span {
+    text-align: left;
+}
+
+/* Riwayat Penarikan */
+.withdraw-history .transaction-empty {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    padding: 20px;
+    text-align: center;
+    color: #555;
+    margin-top: 15px;
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+
+    <header class="app-header">
+        <span class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+        Penarikan
+    </header>
+
+    <!-- Saldo tersedia -->
+    <div class="balance-box" id="balanceBox">
+        Saldo yang dapat ditarik: Rp5.000
+    </div>
+
+    <main class="withdraw-section">
+
+        <!-- Bank Info -->
+        <select id="bankName" required>
+            <option value="" disabled selected>Pilih Bank / E-Wallet</option>
+            <option value="BCA">BCA</option>
+            <option value="Mandiri">Mandiri</option>
+            <option value="BNI">BNI</option>
+            <option value="BRI">BRI</option>
+            <option value="OVO">OVO</option>
+            <option value="Dana">Dana</option>
+            <option value="Gopay">Gopay</option>
+            <option value="LinkAja">LinkAja</option>
+        </select>
+        <input type="text" id="bankNumber" placeholder="Nomor Rekening / ID E-Wallet" required>
+
+        <!-- Nominal -->
+        <input type="number" id="withdrawAmount" placeholder="Masukkan Nominal Penarikan" min="155000">
+        
+        <div class="quick-nominal">
+            <button type="button" data-amount="40000">Rp40.000</button>
+            <button type="button" data-amount="100000">Rp100.000</button>
+            <button type="button" data-amount="1000000">Rp1.000.000</button>
+        </div>
+
+        <button class="withdraw-button" id="withdrawButton">Lakukan Penarikan</button>
+
+        <!-- Instruksi Penarikan -->
+        <section class="instructions-section">
+            <h3>Instruksi Penarikan</h3>
+            <ul class="instruction-list">
+                <li><div class="number">1</div><span>Pilih bank atau e-wallet tujuan penarikan.</span></li>
+                <li><div class="number">2</div><span>Masukkan nomor rekening atau ID e-wallet.</span></li>
+                <li><div class="number">3</div><span>Masukkan nominal penarikan minimal Rp40.000.</span></li>
+                <li><div class="number">4</div><span>Pilih nominal cepat jika ingin mempermudah pengisian.</span></li>
+                <li><div class="number">5</div><span>Klik tombol "Lakukan Penarikan".</span></li>
+                <li><div class="number">6</div><span>Tunggu proses konfirmasi, saldo akan masuk ke rekening atau e-wallet Anda.</span></li>
+            </ul>
+        </section>
+
+        <!-- Riwayat Penarikan -->
+        <section class="withdraw-history">
+            <div class="transaction-empty">
+                Belum ada riwayat penarikan.
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script>
+// Quick nominal button
+const quickButtons = document.querySelectorAll('.quick-nominal button');
+const withdrawInput = document.getElementById('withdrawAmount');
+
+quickButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        withdrawInput.value = btn.getAttribute('data-amount');
+    });
+});
+
+// Withdraw button
+const balanceBox = document.getElementById('balanceBox');
+let balance = 5000; // contoh saldo
+
+document.getElementById('withdrawButton').addEventListener('click', () => {
+    const bankName = document.getElementById('bankName').value.trim();
+    const bankNumber = document.getElementById('bankNumber').value.trim();
+    const amount = parseInt(withdrawInput.value);
+
+    if(!bankName) { alert("Pilih bank atau e-wallet"); return; }
+    if(!bankNumber) { alert("Masukkan nomor rekening / ID e-wallet"); return; }
+    if(!amount || amount < 40000) { alert("Minimal penarikan Rp40.000"); return; }
+    if(amount > balance) { alert("Saldo Anda tidak cukup!"); return; }
+
+    balance -= amount;
+    balanceBox.textContent = `Saldo yang dapat ditarik: Rp${balance.toLocaleString()}`;
+    alert(`Penarikan Rp${amount.toLocaleString()} ke ${bankName} (${bankNumber}) berhasil dikirim.`);
+    
+    withdrawInput.value = '';
+    document.getElementById('bankName').value = '';
+    document.getElementById('bankNumber').value = '';
+});
+</script>
+
+</body>
+</html>

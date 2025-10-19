@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment - Lion Yellow</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Loading Screen */
+#loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.loader {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #ffc107;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.loading-text {
+    font-size: 16px;
+    color: #222;
+}
+
+/* Header */
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Payment Section */
+.payment-section {
+    padding: 25px 20px;
+    text-align: center;
+    display: none; /* sembunyi dulu, tampil setelah loading */
+}
+.payment-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #222;
+}
+.payment-amount {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+.qr-container img {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+}
+.instructions-section {
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    text-align: left;
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen">
+        <div class="loader"></div>
+        <div class="loading-text">Memuat kode pembayaran...</div>
+    </div>
+
+    <!-- Header -->
+    
+
+    <!-- Payment Section -->
+    <main class="payment-section" id="paymentSection">
+        <h2>Scan QR untuk melakukan pembayaran</h2>
+        <div class="payment-amount" id="paymentAmount">Rp0</div>
+        <div class="qr-container">
+            <img src="lionqr.jpg" alt="QR Code Pembayaran">
+        </div>
+        <div class="instructions-section">
+            <p>
+                Silakan scan QR di atas menggunakan aplikasi pembayaran Anda, atau bisa di tangkap layar. Pastikan nominal sesuai yang tertera. Setelah pembayaran selesai, saldo akan otomatis masuk ke akun Anda.
+            </p>
+        </div>
+    </main>
+
+</div>
+
+<script>
+// Ambil query parameter
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+const amount = getQueryParam('amount');
+if(amount) {
+    document.getElementById('paymentAmount').textContent = `Rp${parseInt(amount).toLocaleString()}`;
+}
+
+// Loading screen
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loadingScreen').style.display = 'none';
+        document.getElementById('paymentSection').style.display = 'block';
+    }, 2000); // durasi loading 2 detik
+});
+</script>
+
+</body>
+</html>

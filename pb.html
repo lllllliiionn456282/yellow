@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pusat Bantuan - Lion Yellow</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 20px 15px;
+}
+.faq-item {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    margin-bottom: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.faq-item.active {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+.faq-question {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: #222;
+}
+.faq-question i {
+    color: #ffc107;
+    margin-right: 10px;
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.faq-item.active .faq-answer {
+    padding: 12px 15px 15px;
+    max-height: 400px; /* cukup tinggi untuk jawaban panjang */
+}
+
+/* Instructions */
+.instructions-section {
+    background-color: #fff;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+.instructions-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #222;
+    text-align: left;
+}
+.instructions-section p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+    <header class="app-header">
+        <span class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+        Pusat Bantuan
+    </header>
+
+    <main class="faq-section">
+
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+            <div class="faq-question"><i class="fas fa-question-circle"></i>Apa itu Lion Yellow?</div>
+            <div class="faq-answer">
+                Lion Yellow adalah platform investasi modern yang membantu pengguna untuk mengelola produk keuangan mereka secara mudah dan transparan.
+            </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+            <div class="faq-question"><i class="fas fa-question-circle"></i>Bagaimana cara membeli produk investasi?</div>
+            <div class="faq-answer">
+                Untuk membeli produk investasi, masuk ke menu "Beranda", pilih produk yang tersedia, lalu ikuti langkah-langkah pembelian yang muncul di layar. Pastikan saldo Anda mencukupi.
+            </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+            <div class="faq-question"><i class="fas fa-question-circle"></i>Bagaimana cara menukarkan kode bonus?</div>
+            <div class="faq-answer">
+                Masuk ke menu "Kode Bonus", masukkan kode yang valid pada kolom yang tersedia, kemudian klik "Klaim Sekarang". Bonus akan otomatis masuk ke akun Anda jika kode valid.
+            </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+            <div class="faq-question"><i class="fas fa-question-circle"></i>Apakah ada biaya tambahan?</div>
+            <div class="faq-answer">
+                Semua transaksi di Lion Yellow tidak dikenakan biaya tambahan selain nominal yang tertera saat pembelian produk investasi atau klaim bonus.
+            </div>
+        </div>
+
+        <!-- FAQ Item 5: Cara Deposit -->
+        <div class="faq-item">
+            <div class="faq-question"><i class="fas fa-question-circle"></i>Bagaimana cara melakukan Isi ulang?</div>
+            <div class="faq-answer">
+                Untuk melakukan Isi ulang, masuk ke menu "Isi ulang", pilih metode pembayaran yang tersedia, masukkan nominal deposit, dan konfirmasi transaksi. Saldo akan otomatis masuk ke akun Anda setelah pembayaran berhasil diproses.
+            </div>
+        </div>
+
+        <!-- FAQ Item 6: Cara Penarikan -->
+        <div class="faq-item">
+            <div class="faq-question"><i class="fas fa-question-circle"></i>Bagaimana cara melakukan penarikan?</div>
+            <div class="faq-answer">
+                Pastikan saldo Anda cukup. Masuk ke menu "Penarikan", pilih rekening tujuan, masukkan nominal penarikan, lalu konfirmasi. Proses biasanya memakan waktu beberapa detik hingga 5 menit tergantung bank. Periksa rekening tujuan agar dana diterima tepat waktu.
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Instructions -->
+    <section class="instructions-section">
+        <h3>Petunjuk dan Informasi Tambahan</h3>
+        <p>
+        Pastikan Anda membaca setiap informasi dengan seksama. Jika mengalami kendala atau membutuhkan bantuan lebih lanjut, silakan hubungi layanan pelanggan kami melalui chat atau email di support@lionyellow.com. Kami berkomitmen memberikan pengalaman investasi yang aman, transparan, dan terpercaya untuk semua pengguna.
+        </p>
+    </section>
+    
+</div>
+
+<script>
+// Accordion functionality
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+    item.addEventListener('click', () => {
+        item.classList.toggle('active');
+    });
+});
+</script>
+
+</body>
+</html>
