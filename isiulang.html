@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isi Ulang - Lion Yellow</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* Header */
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Deposit Section */
+.deposit-section {
+    padding: 20px 15px;
+}
+.deposit-section h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #222;
+}
+.deposit-section input[type="number"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 12px;
+    border: 1px solid #ffc107;
+    text-align: center;
+    margin-bottom: 12px;
+    outline: none;
+    box-sizing: border-box;
+}
+.quick-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.quick-buttons button {
+    flex: 1;
+    padding: 10px 0;
+    border-radius: 12px;
+    border: 1px solid #ffc107;
+    background-color: #fff;
+    color: #222;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.quick-buttons button:hover {
+    background-color: #ffecb3;
+}
+.deposit-section select {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 12px;
+    border: 1px solid #ffc107;
+    margin-bottom: 15px;
+    outline: none;
+    box-sizing: border-box;
+}
+.deposit-section button.deposit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffc107;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.deposit-section button.deposit-btn:hover {
+    background-color: #ffca2c;
+}
+
+/* Instructions */
+.instructions-section {
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+.instructions-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #222;
+    text-align: left;
+}
+.instructions-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.instructions-section ul li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+.instructions-section ul li .number {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #ffc107;
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+    <header class="app-header">
+        <span class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+        Isi Ulang
+    </header>
+
+    <main class="deposit-section">
+        <h2>Masukkan Nominal Deposit</h2>
+        <input type="number" id="deposit-amount" placeholder="Masukkan Nominal">
+
+        <div class="quick-buttons">
+            <button class="quick-btn" data-value="155000">155.000</button>
+            <button class="quick-btn" data-value="200000">200.000</button>
+            <button class="quick-btn" data-value="500000">500.000</button>
+            <button class="quick-btn" data-value="1000000">1.000.000</button>
+        </div>
+
+        <select id="payment-method">
+            <option value="">Pilih Metode Pembayaran</option>
+            <option value="Aris">Qris</option>
+            <option value="Bank Transfer">Bank Transfer</option>
+            <option value="E-Wallet">E-Wallet</option>
+        </select>
+
+        <button class="deposit-btn" id="depositButton">Lakukan Deposit</button>
+
+        <section class="instructions-section">
+            <h3>Langkah-langkah Deposit</h3>
+            <ul>
+                <li><div class="number">1</div><span>Masukkan nominal deposit minimal Rp155.000 pada kolom di atas.</span></li>
+                <li><div class="number">2</div><span>Pilih metode pembayaran yang Anda inginkan dari daftar pilihan.</span></li>
+                <li><div class="number">3</div><span>Jika ingin cepat, pilih salah satu nominal cepat yang tersedia di atas kolom input.</span></li>
+                <li><div class="number">4</div><span>Tekan tombol "Lakukan Deposit" untuk memproses transaksi.</span></li>
+                <li><div class="number">5</div><span>Ikuti instruksi yang muncul untuk menyelesaikan pembayaran sesuai metode yang dipilih.</span></li>
+                <li><div class="number">6</div><span>Setelah pembayaran berhasil, saldo akan otomatis masuk ke akun Anda.</span></li>
+                <li><div class="number">7</div><span>Pastikan nominal deposit minimal Rp155.000 agar transaksi diterima.</span></li>
+            </ul>
+        </section>
+    </main>
+</div>
+
+<script>
+// Tombol nominal cepat
+const quickButtons = document.querySelectorAll('.quick-btn');
+const depositInput = document.getElementById('deposit-amount');
+quickButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        depositInput.value = btn.getAttribute('data-value');
+    });
+});
+
+<!-- Tombol deposit -->
+
+document.getElementById('depositButton').addEventListener('click', () => {
+    const amount = parseInt(depositInput.value.trim());
+    const payment = document.getElementById('payment-method').value;
+    const MIN_DEPOSIT = 50000; // Minimal deposit
+
+    if(isNaN(amount) || amount < MIN_DEPOSIT) {
+        alert(`Minimal deposit adalah Rp${MIN_DEPOSIT.toLocaleString()}`);
+        depositInput.focus();
+        return;
+    }
+    if(payment === "") {
+        alert("Silakan pilih metode pembayaran!");
+        return;
+    }
+
+    // Arahkan ke payment.html dengan query parameter
+    window.location.href = `payment.html?amount=${amount}&method=${encodeURIComponent(payment)}`;
+});
+
+</script>
+
+</body>
+</html>
