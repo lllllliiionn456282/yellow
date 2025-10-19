@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu Tim - Lion Yellow</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+}
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.app-header {
+    background-color: #ffc107;
+    color: #000;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.app-header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Team Status */
+.team-status {
+    background-color: #fff3cd;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    text-align: center;
+    font-weight: bold;
+    color: #856404;
+}
+
+/* Team List */
+.team-list {
+    padding: 0 15px;
+}
+.team-member {
+    background-color: #fff;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.team-member.active {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+.member-header {
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: #222;
+}
+.member-header i {
+    color: #ffc107;
+    transition: transform 0.3s ease;
+}
+.team-member.active .member-header i {
+    transform: rotate(180deg);
+}
+.member-details {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.team-member.active .member-details {
+    padding: 12px 15px 15px;
+    max-height: 200px;
+}
+
+/* Instructions */
+.instructions-section {
+    background-color: #fff;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+.instructions-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #222;
+}
+.instruction-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.instruction-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+.instruction-list li .number {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #ffc107;
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+}
+.instruction-list li span {
+    text-align: left;
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+
+    <header class="app-header">
+        <span class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+        Tim Saya
+    </header>
+
+    <div class="team-status">
+        Total Tim Terdaftar: 0
+    </div>
+
+    <div class="team-list" id="teamList">
+        <!-- Dummy Member -->
+        <div class="team-member active">
+            <div class="member-header">
+                <span>Tim Aktif</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="member-details">
+                Belum ada tim aktif dalam tim Anda.
+            </div>
+        </div>
+        <!-- Contoh level 1 -->
+        <div class="team-member active">
+            <div class="member-header">
+                <span>Tim Level 1</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="member-details">
+                Jumlah Tim: 0<br>
+                Aktivitas: Belum ada
+            </div>
+        </div>
+        <!-- Contoh level 2 -->
+        <div class="team-member active">
+            <div class="member-header">
+                <span>Tim Level 2</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="member-details">
+                Jumlah Tim: 0<br>
+                Aktivitas: Belum ada
+            </div>
+        </div>
+        <!-- Contoh level 3 -->
+        <div class="team-member active">
+            <div class="member-header">
+                <span>Tim Level 3</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="member-details">
+                Jumlah Tim: 0<br>
+                Aktivitas: Belum ada
+            </div>
+        </div>
+    </div>
+
+    <!-- Instruksi -->
+    <section class="instructions-section">
+        <h3>Instruksi Tim</h3>
+        <ul class="instruction-list">
+            <li><div class="number">1</div><span>Klik pada tiap level tim untuk melihat detail anggota dan aktivitas tim.</span></li>
+            <li><div class="number">2</div><span>Angka di samping tiap level menunjukkan jumlah anggota dalam level tersebut.</span></li>
+            <li><div class="number">3</div><span>Detail anggota akan memunculkan informasi aktivitas atau status tim.</span></li>
+            <li><div class="number">4</div><span>Gunakan informasi ini untuk memantau perkembangan tim Anda secara cepat dan efektif.</span></li>
+        </ul>
+    </section>
+
+</div>
+
+<script>
+// Accordion functionality
+const teamMembers = document.querySelectorAll('.team-member');
+teamMembers.forEach(member => {
+    member.classList.add('active'); // langsung terbuka semua
+});
+</script>
+
+</body>
+</html>
